@@ -1,0 +1,19 @@
+input {
+    border: 5px solid black;
+}
+section {
+    border: 10px solid gray;
+    width: 300px;
+    padding: 20px;
+}
+ p {
+    border: 5px solid red;
+    width: 200px;
+    padding: 10px;
+}
+button {
+    border: 3px solid red;
+    padding: 5px;
+    cursor: pointer;
+    margin: 10px;
+}

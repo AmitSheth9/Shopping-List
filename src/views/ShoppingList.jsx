@@ -39,14 +39,15 @@ const itemsReducer = (items, action) =>{
 
 export default function ShoppingList() {
     const [items, dispatch] = useReducer(itemsReducer, initialList)
-    
+    const [stateId, setStateId] = useState(99);
     
 
 
   
    const handleAddItem = (text) => {
        dispatch({type: 'added',
-                id: nextId -1, text })
+                id: Math.floor(Math.random() * 1000)
+            , text })
    }
    const handleEditItem = (task) => {
        dispatch({type: 'edited',

@@ -7,9 +7,9 @@ export default function ItemsList({ items, handleDeleteItem, handleEditItem }) {
     return (
         <>
         
-             {items.map((item)  => {
+             {items.map((item, i)  => {
             return (
-                <div key={item.text} >
+                <div key={item.id} >
                    <Item item={item} handleDeleteItem={handleDeleteItem} handleEditItem={handleEditItem} />
                 </div>
             )

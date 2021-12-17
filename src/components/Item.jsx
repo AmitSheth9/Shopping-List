@@ -5,7 +5,6 @@ export default function Item({ item, handleDeleteItem, handleEditItem }) {
     const [editInput, setEditInput] = useState('');
 
     const handleEditButton =(item) => {
-        //item.edit = !item.edit;
         setIsEdit(prev => !prev);
         console.log(item);
     }

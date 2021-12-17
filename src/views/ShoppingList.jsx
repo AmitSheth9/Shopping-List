@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState, useReducer } from 'react'
 import './ShoppingList.css'
+import AddItem from '../components/AddItem'
+import ItemsList from '../components/ItemsList'
 
 const nextId = 99
 
@@ -37,13 +39,9 @@ const itemsReducer = (items, action) =>{
 
 export default function ShoppingList() {
     const [items, dispatch] = useReducer(itemsReducer, initialList)
-    const [text, setText] = useState('');
-    const [isEdit, setIsEdit] = useState(false)
-    const [editInput, setEditInput] = useState('');
-const handleSubmit = (e) => {
-    e.preventDefault();
-    handleAddItem(text);
-}
+    
+    
+
 
   
    const handleAddItem = (text) => {
@@ -58,41 +56,11 @@ const handleSubmit = (e) => {
         dispatch({ type: 'deleted',
                 id: taskId})
    }
-   const handleEditButton =(item) => {
-       //item.edit = !item.edit;
-       setIsEdit(prev => !prev);
-       console.log(item);
-   }
+  
 return (
     <div>
-        <div>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    <input value={text} onChange={(e) => setText(e.target.value)} />
-                </label>
-                <button type='submit'>Add Item</button>
-            </form>
-        </div>
-        <div>
-        {items.map((item, i)  => {
-            return (
-                <section className='item-container' key={i}>
-                    <p className='item'>Item: {item.text}</p>
-                    <p >Id: {item.id}</p>
-                    <button onClick={() => handleEditButton(item)}>Edit Item</button>
-                    <button onClick={()=>handleDeleteItem(item.id)}>Delete Item</button>
-                    
-                    
-                    {isEdit ?<><input value= {editInput} onChange={(e) => setEditInput(e.target.value)}/> <button onClick={() => handleEditItem({...item, text: editInput})}>Save</button></> :<>tester</>}
-                </section>
-            )
-        })}
-        
-        </div>
-        <div>
-        
-        
-        </div>
-        </div>
+        <AddItem handleAddItem={handleAddItem} />
+        <ItemsList items={items} handleDeleteItem={handleDeleteItem} handleEditItem={handleEditItem} />
+    </div>
     )
 }

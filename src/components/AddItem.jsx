@@ -13,7 +13,7 @@ export default function AddItem({ handleAddItem  }) {
             <div>
             <form onSubmit={handleSubmit}>
                 <label>
-                    <input value={text} onChange={(e) => setText(e.target.value)} />
+                    <input placeholder='Add item' value={text} onChange={(e) => setText(e.target.value)} />
                 </label>
                 <button type='submit'>Add Item</button>
             </form>

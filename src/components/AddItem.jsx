@@ -9,7 +9,7 @@ export default function AddItem({ handleAddItem  }) {
         handleAddItem(text);
     }
     return (
-        <div>test
+        <div>
             <div>
             <form onSubmit={handleSubmit}>
                 <label>

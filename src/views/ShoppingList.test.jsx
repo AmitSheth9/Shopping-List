@@ -12,7 +12,7 @@ beforeEach(() =>
   )
 );
 
-it('should render list', () => {
+it('should render the list', () => {
     screen.getByText('Item: Veggie Burgers');
 });
 
